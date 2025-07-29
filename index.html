@@ -4,213 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Portfólio - Vivian Moraes</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #f7f7f7;
-      color: #333;
-    }
-    header {
-      background-color: #222;
-      color: white;
-      padding: 2rem;
-      text-align: center;
-    }
-    section {
-      padding: 2rem;
-      max-width: 800px;
-      margin: auto;
-      background-color: white;
-      margin-top: 1rem;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
-    h2 {
-      color: #444;
-    }
-    .carousel {
-      position: relative;
-      width: 100%;
-      height: 500px;
-      overflow: hidden;
-      margin: 2rem 0;
-      border-radius: 10px;
-    }
-    .carousel-inner {
-      display: flex;
-      transition: transform 0.5s ease-in-out;
-    }
-    .carousel-item {
-      min-width: 100%;
-      height: 500px;
-    }
-    @keyframes slideshow {
-      0% { transform: translateX(0); }
-      9.09% { transform: translateX(0); }
-      18.18% { transform: translateX(-100%); }
-      27.27% { transform: translateX(-200%); }
-      36.36% { transform: translateX(-300%); }
-      45.45% { transform: translateX(-400%); }
-      54.54% { transform: translateX(-500%); }
-      63.63% { transform: translateX(-600%); }
-      72.72% { transform: translateX(-700%); }
-      81.81% { transform: translateX(-800%); }
-      90.90% { transform: translateX(-900%); }
-      100% { transform: translateX(-1000%); }
-    }
-    @keyframes slideshow2 {
-      0% { transform: translateX(0); }
-      16.66% { transform: translateX(0); }
-      33.33% { transform: translateX(-100%); }
-      50% { transform: translateX(-200%); }
-      66.66% { transform: translateX(-300%); }
-      83.33% { transform: translateX(-400%); }
-      100% { transform: translateX(-500%); }
-    }
-    @keyframes slideshow3 {
-      0% { transform: translateX(0); }
-      25% { transform: translateX(0); }
-      50% { transform: translateX(-100%); }
-      75% { transform: translateX(-200%); }
-      100% { transform: translateX(-300%); }
-    }
-    @keyframes slideshow4 {
-      0% { transform: translateX(0); }
-      12.5% { transform: translateX(0); }
-      25% { transform: translateX(-100%); }
-      37.5% { transform: translateX(-200%); }
-      50% { transform: translateX(-300%); }
-      62.5% { transform: translateX(-400%); }
-      75% { transform: translateX(-500%); }
-      87.5% { transform: translateX(-600%); }
-      100% { transform: translateX(-700%); }
-    }
-    /* Animações automáticas dos carrosséis */
-    .carousel-inner {
-      animation-iteration-count: infinite;
-    }
-    #quarto-lari .carousel-inner:not(.manual) {
-      animation: slideshow 55s infinite;
-    }
-    #casa-bruna .carousel-inner:not(.manual) {
-      animation: slideshow2 30s infinite;
-    }
-    #rooftop .carousel-inner:not(.manual) {
-      animation: slideshow3 20s infinite;
-    }
-    #casarao .carousel-inner:not(.manual) {
-      animation: slideshow4 40s infinite;
-    }
-    /* Parar animação quando um radio button é clicado */
-    input[type="radio"]:checked ~ .carousel-inner {
-      animation: none !important;
-    }
-    .carousel-item img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-    .carousel-nav {
-      position: absolute;
-      bottom: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      display: flex;
-      gap: 10px;
-    }
-    .carousel-nav label {
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      background: rgba(128, 128, 128, 0.5);
-      cursor: pointer;
-      border: 2px solid rgba(128, 128, 128, 0.8);
-    }
-    .carousel-nav label:hover {
-      background: #666;
-    }
-    input[type="radio"] {
-      display: none;
-    }
-    #image1:checked ~ .carousel-inner { transform: translateX(0); }
-    #image2:checked ~ .carousel-inner { transform: translateX(-100%); }
-    #image3:checked ~ .carousel-inner { transform: translateX(-200%); }
-    #image4:checked ~ .carousel-inner { transform: translateX(-300%); }
-    #image5:checked ~ .carousel-inner { transform: translateX(-400%); }
-    #image6:checked ~ .carousel-inner { transform: translateX(-500%); }
-    #image7:checked ~ .carousel-inner { transform: translateX(-600%); }
-    #image8:checked ~ .carousel-inner { transform: translateX(-700%); }
-    #image9:checked ~ .carousel-inner { transform: translateX(-800%); }
-    #image10:checked ~ .carousel-inner { transform: translateX(-900%); }
-    #image11:checked ~ .carousel-inner { transform: translateX(-1000%); }
-    
-    #image1:checked ~ .carousel-nav label:nth-child(1),
-    #image2:checked ~ .carousel-nav label:nth-child(2),
-    #image3:checked ~ .carousel-nav label:nth-child(3),
-    #image4:checked ~ .carousel-nav label:nth-child(4),
-    #image5:checked ~ .carousel-nav label:nth-child(5),
-    #image6:checked ~ .carousel-nav label:nth-child(6),
-    #image7:checked ~ .carousel-nav label:nth-child(7),
-    #image8:checked ~ .carousel-nav label:nth-child(8),
-    #image9:checked ~ .carousel-nav label:nth-child(9),
-    #image10:checked ~ .carousel-nav label:nth-child(10),
-    #image11:checked ~ .carousel-nav label:nth-child(11) {
-      background: white;
-    }
-
-    /* Casa Bruna e Mago Carousel */
-    #casa1:checked ~ .carousel-inner { transform: translateX(0); }
-    #casa2:checked ~ .carousel-inner { transform: translateX(-100%); }
-    #casa3:checked ~ .carousel-inner { transform: translateX(-200%); }
-    #casa4:checked ~ .carousel-inner { transform: translateX(-300%); }
-    #casa5:checked ~ .carousel-inner { transform: translateX(-400%); }
-    #casa6:checked ~ .carousel-inner { transform: translateX(-500%); }
-    
-    /* Rooftop Carousel */
-    #roof1:checked ~ .carousel-inner { transform: translateX(0); }
-    #roof2:checked ~ .carousel-inner { transform: translateX(-100%); }
-    #roof3:checked ~ .carousel-inner { transform: translateX(-200%); }
-    #roof4:checked ~ .carousel-inner { transform: translateX(-300%); }
-    
-    /* Casarão Carousel */
-    #casa-old1:checked ~ .carousel-inner { transform: translateX(0); }
-    #casa-old2:checked ~ .carousel-inner { transform: translateX(-100%); }
-    #casa-old3:checked ~ .carousel-inner { transform: translateX(-200%); }
-    #casa-old4:checked ~ .carousel-inner { transform: translateX(-300%); }
-    #casa-old5:checked ~ .carousel-inner { transform: translateX(-400%); }
-    #casa-old6:checked ~ .carousel-inner { transform: translateX(-500%); }
-    #casa-old7:checked ~ .carousel-inner { transform: translateX(-600%); }
-    #casa-old8:checked ~ .carousel-inner { transform: translateX(-700%); }
-    
-    #casa1:checked ~ .carousel-nav label:nth-child(1),
-    #casa2:checked ~ .carousel-nav label:nth-child(2),
-    #casa3:checked ~ .carousel-nav label:nth-child(3),
-    #casa4:checked ~ .carousel-nav label:nth-child(4),
-    #casa5:checked ~ .carousel-nav label:nth-child(5),
-    #casa6:checked ~ .carousel-nav label:nth-child(6) {
-      background: white;
-    }
-    
-    #roof1:checked ~ .carousel-nav label:nth-child(1),
-    #roof2:checked ~ .carousel-nav label:nth-child(2),
-    #roof3:checked ~ .carousel-nav label:nth-child(3),
-    #roof4:checked ~ .carousel-nav label:nth-child(4) {
-      background: white;
-    }
-    
-    #casa-old1:checked ~ .carousel-nav label:nth-child(1),
-    #casa-old2:checked ~ .carousel-nav label:nth-child(2),
-    #casa-old3:checked ~ .carousel-nav label:nth-child(3),
-    #casa-old4:checked ~ .carousel-nav label:nth-child(4),
-    #casa-old5:checked ~ .carousel-nav label:nth-child(5),
-    #casa-old6:checked ~ .carousel-nav label:nth-child(6),
-    #casa-old7:checked ~ .carousel-nav label:nth-child(7),
-    #casa-old8:checked ~ .carousel-nav label:nth-child(8) {
-      background: white;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
 
@@ -435,6 +230,24 @@
     </div>
   </div>
 </section>
+
+<section class="curriculo-section">
+  <h2>Currículo Completo</h2>
+  <p>Para conhecer toda minha trajetória profissional, acesse o currículo completo em PDF:</p>
+  <a class="curriculo-btn" href="CV - VIVIAN MORAES - 2025.pdf" target="_blank">
+    <i class="fas fa-file-pdf"></i> Ver Currículo
+  </a>
+</section>
+
+<footer>
+  <div class="footer-content">
+    <p>&copy; 2024 Vivian Moraes. Todos os direitos reservados.</p>
+    <div class="social-links">
+      <a href="https://www.linkedin.com/in/seu-linkedin" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+      <a href="https://wa.me/SEUNUMERO" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+    </div>
+  </div>
+</footer>
 
 </body>
 </html>
