@@ -280,6 +280,46 @@ footer {
   transform: translateY(-2px) scale(1.04);
 }
 
+/* --- Seção de Competências & Badges --- */
+.skills-section {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.08);
+  max-width: 800px;
+  margin: 2rem auto 0 auto;
+  padding: 2rem 1rem 1.5rem 1rem;
+  text-align: center;
+}
+.skills-section h2 {
+  color: #444;
+  margin-bottom: 1.2rem;
+  font-size: 1.3rem;
+  letter-spacing: 1px;
+}
+.skills-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  justify-content: center;
+}
+.skill-badge {
+  background: #222;
+  color: #fff;
+  border-radius: 20px;
+  padding: 0.5rem 1.2rem;
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+  transition: background 0.2s, transform 0.2s;
+  display: inline-block;
+  margin-bottom: 0.2rem;
+}
+.skill-badge:hover {
+  background: #444;
+  transform: scale(1.07);
+}
+
 @media (max-width: 600px) {
   .carousel, .carousel-item {
     height: 250px;
@@ -296,5 +336,12 @@ footer {
   }
   .social-links a {
     font-size: 1.5rem;
+  }
+  .skills-section {
+    padding: 1rem 0.5rem 1rem 0.5rem;
+  }
+  .skill-badge {
+    font-size: 0.95rem;
+    padding: 0.4rem 0.8rem;
   }
 } 
