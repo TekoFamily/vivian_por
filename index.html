@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfólio - Vivian Moraes</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f7f7f7;
+      color: #333;
+    }
+    header {
+      background-color: #222;
+      color: white;
+      padding: 2rem;
+      text-align: center;
+    }
+    section {
+      padding: 2rem;
+      max-width: 800px;
+      margin: auto;
+      background-color: white;
+      margin-top: 1rem;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h2 {
+      color: #444;
+    }
+    .carousel {
+      position: relative;
+      width: 100%;
+      height: 500px;
+      overflow: hidden;
+      margin: 2rem 0;
+      border-radius: 10px;
+    }
+    .carousel-inner {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+    }
+    .carousel-item {
+      min-width: 100%;
+      height: 500px;
+    }
+    @keyframes slideshow {
+      0% { transform: translateX(0); }
+      9.09% { transform: translateX(0); }
+      18.18% { transform: translateX(-100%); }
+      27.27% { transform: translateX(-200%); }
+      36.36% { transform: translateX(-300%); }
+      45.45% { transform: translateX(-400%); }
+      54.54% { transform: translateX(-500%); }
+      63.63% { transform: translateX(-600%); }
+      72.72% { transform: translateX(-700%); }
+      81.81% { transform: translateX(-800%); }
+      90.90% { transform: translateX(-900%); }
+      100% { transform: translateX(-1000%); }
+    }
+    @keyframes slideshow2 {
+      0% { transform: translateX(0); }
+      16.66% { transform: translateX(0); }
+      33.33% { transform: translateX(-100%); }
+      50% { transform: translateX(-200%); }
+      66.66% { transform: translateX(-300%); }
+      83.33% { transform: translateX(-400%); }
+      100% { transform: translateX(-500%); }
+    }
+    @keyframes slideshow3 {
+      0% { transform: translateX(0); }
+      25% { transform: translateX(0); }
+      50% { transform: translateX(-100%); }
+      75% { transform: translateX(-200%); }
+      100% { transform: translateX(-300%); }
+    }
+    @keyframes slideshow4 {
+      0% { transform: translateX(0); }
+      12.5% { transform: translateX(0); }
+      25% { transform: translateX(-100%); }
+      37.5% { transform: translateX(-200%); }
+      50% { transform: translateX(-300%); }
+      62.5% { transform: translateX(-400%); }
+      75% { transform: translateX(-500%); }
+      87.5% { transform: translateX(-600%); }
+      100% { transform: translateX(-700%); }
+    }
+    /* Animações automáticas dos carrosséis */
+    .carousel-inner {
+      animation-iteration-count: infinite;
+    }
+    #quarto-lari .carousel-inner:not(.manual) {
+      animation: slideshow 55s infinite;
+    }
+    #casa-bruna .carousel-inner:not(.manual) {
+      animation: slideshow2 30s infinite;
+    }
+    #rooftop .carousel-inner:not(.manual) {
+      animation: slideshow3 20s infinite;
+    }
+    #casarao .carousel-inner:not(.manual) {
+      animation: slideshow4 40s infinite;
+    }
+    /* Parar animação quando um radio button é clicado */
+    input[type="radio"]:checked ~ .carousel-inner {
+      animation: none !important;
+    }
+    .carousel-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .carousel-nav {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 10px;
+    }
+    .carousel-nav label {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.5);
+      cursor: pointer;
+    }
+    .carousel-nav label:hover {
+      background: white;
+    }
+    input[type="radio"] {
+      display: none;
+    }
+    #image1:checked ~ .carousel-inner { transform: translateX(0); }
+    #image2:checked ~ .carousel-inner { transform: translateX(-100%); }
+    #image3:checked ~ .carousel-inner { transform: translateX(-200%); }
+    #image4:checked ~ .carousel-inner { transform: translateX(-300%); }
+    #image5:checked ~ .carousel-inner { transform: translateX(-400%); }
+    #image6:checked ~ .carousel-inner { transform: translateX(-500%); }
+    #image7:checked ~ .carousel-inner { transform: translateX(-600%); }
+    #image8:checked ~ .carousel-inner { transform: translateX(-700%); }
+    #image9:checked ~ .carousel-inner { transform: translateX(-800%); }
+    #image10:checked ~ .carousel-inner { transform: translateX(-900%); }
+    #image11:checked ~ .carousel-inner { transform: translateX(-1000%); }
+    
+    #image1:checked ~ .carousel-nav label:nth-child(1),
+    #image2:checked ~ .carousel-nav label:nth-child(2),
+    #image3:checked ~ .carousel-nav label:nth-child(3),
+    #image4:checked ~ .carousel-nav label:nth-child(4),
+    #image5:checked ~ .carousel-nav label:nth-child(5),
+    #image6:checked ~ .carousel-nav label:nth-child(6),
+    #image7:checked ~ .carousel-nav label:nth-child(7),
+    #image8:checked ~ .carousel-nav label:nth-child(8),
+    #image9:checked ~ .carousel-nav label:nth-child(9),
+    #image10:checked ~ .carousel-nav label:nth-child(10),
+    #image11:checked ~ .carousel-nav label:nth-child(11) {
+      background: white;
+    }
+
+    /* Casa Bruna e Mago Carousel */
+    #casa1:checked ~ .carousel-inner { transform: translateX(0); }
+    #casa2:checked ~ .carousel-inner { transform: translateX(-100%); }
+    #casa3:checked ~ .carousel-inner { transform: translateX(-200%); }
+    #casa4:checked ~ .carousel-inner { transform: translateX(-300%); }
+    #casa5:checked ~ .carousel-inner { transform: translateX(-400%); }
+    #casa6:checked ~ .carousel-inner { transform: translateX(-500%); }
+    
+    /* Rooftop Carousel */
+    #roof1:checked ~ .carousel-inner { transform: translateX(0); }
+    #roof2:checked ~ .carousel-inner { transform: translateX(-100%); }
+    #roof3:checked ~ .carousel-inner { transform: translateX(-200%); }
+    #roof4:checked ~ .carousel-inner { transform: translateX(-300%); }
+    
+    /* Casarão Carousel */
+    #casa-old1:checked ~ .carousel-inner { transform: translateX(0); }
+    #casa-old2:checked ~ .carousel-inner { transform: translateX(-100%); }
+    #casa-old3:checked ~ .carousel-inner { transform: translateX(-200%); }
+    #casa-old4:checked ~ .carousel-inner { transform: translateX(-300%); }
+    #casa-old5:checked ~ .carousel-inner { transform: translateX(-400%); }
+    #casa-old6:checked ~ .carousel-inner { transform: translateX(-500%); }
+    #casa-old7:checked ~ .carousel-inner { transform: translateX(-600%); }
+    #casa-old8:checked ~ .carousel-inner { transform: translateX(-700%); }
+    
+    #casa1:checked ~ .carousel-nav label:nth-child(1),
+    #casa2:checked ~ .carousel-nav label:nth-child(2),
+    #casa3:checked ~ .carousel-nav label:nth-child(3),
+    #casa4:checked ~ .carousel-nav label:nth-child(4),
+    #casa5:checked ~ .carousel-nav label:nth-child(5),
+    #casa6:checked ~ .carousel-nav label:nth-child(6) {
+      background: white;
+    }
+    
+    #roof1:checked ~ .carousel-nav label:nth-child(1),
+    #roof2:checked ~ .carousel-nav label:nth-child(2),
+    #roof3:checked ~ .carousel-nav label:nth-child(3),
+    #roof4:checked ~ .carousel-nav label:nth-child(4) {
+      background: white;
+    }
+    
+    #casa-old1:checked ~ .carousel-nav label:nth-child(1),
+    #casa-old2:checked ~ .carousel-nav label:nth-child(2),
+    #casa-old3:checked ~ .carousel-nav label:nth-child(3),
+    #casa-old4:checked ~ .carousel-nav label:nth-child(4),
+    #casa-old5:checked ~ .carousel-nav label:nth-child(5),
+    #casa-old6:checked ~ .carousel-nav label:nth-child(6),
+    #casa-old7:checked ~ .carousel-nav label:nth-child(7),
+    #casa-old8:checked ~ .carousel-nav label:nth-child(8) {
+      background: white;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Portfólio Vivian Maria Alves Moraes</h1>
+  <p>Arquiteta e Urbanista</p>
+</header>
+
+<section id="casa-bruna">
+  <h2>Casa Bruna e Mago - Serrambi-PE</h2>
+  <p>
+    Projeto desenvolvido pelo escritório Taciana Feitosa Arquitetura, utilizando Archicad e renderizações em SketchUp e V-Ray. 
+    Materiais como pedra, madeira, cobogós, brises e pergolados proporcionam conforto térmico e ventilacão natural. 
+    O detalhamento foi feito integralmente no Archicad.
+  </p>
+
+  <div class="carousel">
+    <input type="radio" name="carousel2" id="casa1" checked>
+    <input type="radio" name="carousel2" id="casa2">
+    <input type="radio" name="carousel2" id="casa3">
+    <input type="radio" name="carousel2" id="casa4">
+    <input type="radio" name="carousel2" id="casa5">
+    <input type="radio" name="carousel2" id="casa6">
+    
+    <div class="carousel-inner">
+      <div class="carousel-item">
+        <img src="img2/casa_bruna.png" alt="Casa Bruna e Mago 1">
+      </div>
+      <div class="carousel-item">
+        <img src="img2/casa2.png" alt="Casa Bruna e Mago 2">
+      </div>
+      <div class="carousel-item">
+        <img src="img2/Captura de tela 2025-07-29 081931.png" alt="Casa Bruna e Mago 3">
+      </div>
+      <div class="carousel-item">
+        <img src="img2/Captura de tela 2025-07-29 082014.png" alt="Casa Bruna e Mago 4">
+      </div>
+      <div class="carousel-item">
+        <img src="img2/Captura de tela 2025-07-29 082041.png" alt="Casa Bruna e Mago 5">
+      </div>
+      <div class="carousel-item">
+        <img src="img2/Captura de tela 2025-07-29 082103.png" alt="Casa Bruna e Mago 6">
+      </div>
+    </div>
+    
+    <div class="carousel-nav">
+      <label for="casa1"></label>
+      <label for="casa2"></label>
+      <label for="casa3"></label>
+      <label for="casa4"></label>
+      <label for="casa5"></label>
+      <label for="casa6"></label>
+    </div>
+  </div>
+</section>
+
+<section id="rooftop">
+  <h2>Rooftop</h2>
+  <p>
+    Espaço de convívio familiar com integração entre áreas internas e externas. Texturas amadeiradas e esquadrias amplas trazem luz natural e vistas para o litoral.
+    A volumetria foi influenciada pela obra da casa de Serrambi.
+  </p>
+
+  <div class="carousel">
+    <input type="radio" name="carousel3" id="roof1" checked>
+    <input type="radio" name="carousel3" id="roof2">
+    <input type="radio" name="carousel3" id="roof3">
+    <input type="radio" name="carousel3" id="roof4">
+    
+    <div class="carousel-inner">
+      <div class="carousel-item">
+        <img src="img3/Captura de tela 2025-07-29 082708.png" alt="Rooftop Vista 1">
+      </div>
+      <div class="carousel-item">
+        <img src="img3/Captura de tela 2025-07-29 082812.png" alt="Rooftop Vista 2">
+      </div>
+      <div class="carousel-item">
+        <img src="img3/Captura de tela 2025-07-29 082831.png" alt="Rooftop Vista 3">
+      </div>
+      <div class="carousel-item">
+        <img src="img3/Captura de tela 2025-07-29 082850.png" alt="Rooftop Vista 4">
+      </div>
+    </div>
+    
+    <div class="carousel-nav">
+      <label for="roof1"></label>
+      <label for="roof2"></label>
+      <label for="roof3"></label>
+      <label for="roof4"></label>
+    </div>
+  </div>
+</section>
+
+<section id="casarao">
+  <h2>Casarão - Santa Tereza, Olinda</h2>
+  <p>
+    Projeto em edificação histórica com manutenção da "casca" original. 
+    Remoção de elementos espúrios e resgate da linguagem eclética, mantendo a simetria estética. 
+    Utilizou-se estrutura metálica independente para preservar a estrutura antiga. 
+  </p>
+
+  <div class="carousel">
+    <input type="radio" name="carousel4" id="casa-old1" checked>
+    <input type="radio" name="carousel4" id="casa-old2">
+    <input type="radio" name="carousel4" id="casa-old3">
+    <input type="radio" name="carousel4" id="casa-old4">
+    <input type="radio" name="carousel4" id="casa-old5">
+    <input type="radio" name="carousel4" id="casa-old6">
+    <input type="radio" name="carousel4" id="casa-old7">
+    <input type="radio" name="carousel4" id="casa-old8">
+    
+    <div class="carousel-inner">
+      <div class="carousel-item">
+        <img src="img4/Captura de tela 2025-07-29 083915.png" alt="Casarão Vista 1">
+      </div>
+      <div class="carousel-item">
+        <img src="img4/Captura de tela 2025-07-29 084032.png" alt="Casarão Vista 2">
+      </div>
+      <div class="carousel-item">
+        <img src="img4/Captura de tela 2025-07-29 084059.png" alt="Casarão Vista 3">
+      </div>
+      <div class="carousel-item">
+        <img src="img4/Captura de tela 2025-07-29 084147.png" alt="Casarão Vista 4">
+      </div>
+      <div class="carousel-item">
+        <img src="img4/Captura de tela 2025-07-29 084208.png" alt="Casarão Vista 5">
+      </div>
+      <div class="carousel-item">
+        <img src="img4/Captura de tela 2025-07-29 084231.png" alt="Casarão Vista 6">
+      </div>
+      <div class="carousel-item">
+        <img src="img4/Captura de tela 2025-07-29 084246.png" alt="Casarão Vista 7">
+      </div>
+      <div class="carousel-item">
+        <img src="img4/Captura de tela 2025-07-29 084302.png" alt="Casarão Vista 8">
+      </div>
+    </div>
+    
+    <div class="carousel-nav">
+      <label for="casa-old1"></label>
+      <label for="casa-old2"></label>
+      <label for="casa-old3"></label>
+      <label for="casa-old4"></label>
+      <label for="casa-old5"></label>
+      <label for="casa-old6"></label>
+      <label for="casa-old7"></label>
+      <label for="casa-old8"></label>
+    </div>
+  </div>
+</section>
+
+<section id="quarto-lari">
+  <h2>Quarto de Lari</h2>
+  <p>
+    Projeto de interiores feito como exercício em Archicad e renderizado no Enscape. 
+    Demonstra a versatilidade do BIM também em interiores. 
+    Apesar de ser um estudo, o projeto será executado devido ao seu destaque.
+  </p>
+  
+  <div class="carousel">
+    <input type="radio" name="carousel" id="image1" checked>
+    <input type="radio" name="carousel" id="image2">
+    <input type="radio" name="carousel" id="image3">
+    <input type="radio" name="carousel" id="image4">
+    <input type="radio" name="carousel" id="image5">
+    <input type="radio" name="carousel" id="image6">
+    <input type="radio" name="carousel" id="image7">
+    <input type="radio" name="carousel" id="image8">
+    <input type="radio" name="carousel" id="image9">
+    <input type="radio" name="carousel" id="image10">
+    <input type="radio" name="carousel" id="image11">
+    <input type="radio" name="carousel" id="image12">
+    
+    <div class="carousel-inner">
+      <div class="carousel-item">
+        <img src="img/Enscape_2025-02-07-18-23-42_Enscape Visualização 1.png" alt="Visualização 1">
+      </div>
+      <div class="carousel-item">
+        <img src="img/Enscape_2025-02-07-18-23-42_Enscape Visualização 2.png" alt="Visualização 2">
+      </div>
+      <div class="carousel-item">
+        <img src="img/Enscape_2025-02-07-18-23-42_Enscape Visualização 3.png" alt="Visualização 3">
+      </div>
+      <div class="carousel-item">
+        <img src="img/Enscape_2025-02-07-18-23-42_Enscape Visualização 4.png" alt="Visualização 4">
+      </div>
+      <div class="carousel-item">
+        <img src="img/Enscape_2025-02-07-18-23-42_Enscape Visualização 5.png" alt="Visualização 5">
+      </div>
+      <div class="carousel-item">
+        <img src="img/Enscape_2025-02-07-18-23-42_Enscape Visualização 6.png" alt="Visualização 6">
+      </div>
+      <div class="carousel-item">
+        <img src="img/Enscape_2025-02-07-18-23-42_Enscape Visualização 7.png" alt="Visualização 7">
+      </div>
+      <div class="carousel-item">
+        <img src="img/Enscape_2025-02-07-18-23-42_Enscape Visualização 8.png" alt="Visualização 8">
+      </div>
+      <div class="carousel-item">
+        <img src="img/Enscape_2025-02-07-18-23-42_Enscape Visualização 9.png" alt="Visualização 9">
+      </div>
+      <div class="carousel-item">
+        <img src="img/Enscape_2025-02-07-18-23-42_Enscape Visualização 10.png" alt="Visualização 10">
+      </div>
+      <div class="carousel-item">
+        <img src="img/Enscape_2025-02-07-18-23-42_Enscape Visualização 11.png" alt="Visualização 11">
+      </div>
+    </div>
+    
+    <div class="carousel-nav">
+      <label for="image1"></label>
+      <label for="image2"></label>
+      <label for="image3"></label>
+      <label for="image4"></label>
+      <label for="image5"></label>
+      <label for="image6"></label>
+      <label for="image7"></label>
+      <label for="image8"></label>
+      <label for="image9"></label>
+      <label for="image10"></label>
+      <label for="image11"></label>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>
